@@ -35,7 +35,7 @@ class Agent(object):
         self.model = DuelingCNN(self.frame_stack, 12).to(self.device)
         
         try:
-            self.model.load_state_dict(torch.load('models/rainbow_icm_episode_1300.pth', map_location=self.device))
+            self.model.load_state_dict(torch.load('models/rainbow_icm_best.pth', map_location=self.device))
             print("Model loaded")
         except:
             print("Failed to load model. Ensure the path is correct.")
@@ -225,6 +225,7 @@ class DuelingCNN(nn.Module):
 #         while not done:
 #             # Select action
 #             action = agent.act(state)
+#             # print(action)
             
 #             next_state, reward, done, info = env.step(action)
             
